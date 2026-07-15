@@ -50,6 +50,28 @@ npx stripekit plan
 npx stripekit push
 ```
 
+## Or hand it to your agent
+
+Same tool, one click for your coding agent — no wrapper, no glue code. Add the MCP server to **Cursor**:
+
+<a href="cursor://anysphere.cursor-deeplink/mcp/install?name=stripekit&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsInN0cmlwZWtpdEBsYXRlc3QiLCJtY3AiXX0=" class="agent-install-btn"><img class="cursor-btn-light" src="https://cursor.com/deeplink/mcp-install-light.svg" alt="Add stripekit to Cursor" /><img class="cursor-btn-dark" src="https://cursor.com/deeplink/mcp-install-dark.svg" alt="Add stripekit to Cursor" /></a>
+
+<style>
+.agent-install-btn img { height: 40px; margin: 0.25rem 0 0.5rem; }
+.cursor-btn-dark { display: none; }
+.dark .cursor-btn-light { display: none; }
+.dark .cursor-btn-dark { display: inline; }
+</style>
+
+…or install the plugin in **Claude Code**:
+
+```bash
+/plugin marketplace add rafaelcg/stripekit
+/plugin install stripekit@stripekit-marketplace
+```
+
+The `stripekit_*` tools (`plan` / `push` / `pull` / `check`) are also on the [MCP registry](https://registry.modelcontextprotocol.io) as `io.github.rafaelcg/stripekit`. [Full agent setup →](/cli/mcp)
+
 ## Your catalog, as code
 
 ```ts
