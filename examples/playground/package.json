@@ -1,0 +1,15 @@
+{
+  "name": "stripekit-playground",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A scratch project for trying stripekit against a Stripe test account.",
+  "type": "module",
+  "scripts": {
+    "plan": "stripekit plan",
+    "push": "stripekit push",
+    "pull": "stripekit pull"
+  },
+  "dependencies": {
+    "stripekit": "workspace:*"
+  }
+}

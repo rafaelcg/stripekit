@@ -1,0 +1,25 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.DS_Store
+
+# vitepress
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+
+# env files a consumer app or local test might drop
+.env
+.env.local
+.env.*.local
+
+# editor
+.idea/
+.vscode/
+*.log
+
+# npm pack artifacts
+*.tgz
+
+# internal strategy notes (kept local)
+research/

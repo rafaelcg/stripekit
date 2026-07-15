@@ -1,0 +1,34 @@
+{
+  "name": "stripekit-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The create-next-app of Stripe — declarative catalog + correct-by-construction billing code you own.",
+  "license": "MIT",
+  "author": "Rafael Cammarano Guglielmi",
+  "homepage": "https://rafaelcg.github.io/stripekit/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelcg/stripekit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rafaelcg/stripekit/issues"
+  },
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "vitepress": "^1.6.3"
+  }
+}
