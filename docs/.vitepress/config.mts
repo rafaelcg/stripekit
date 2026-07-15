@@ -1,4 +1,12 @@
 import { defineConfig } from 'vitepress'
+import llmstxt from 'vitepress-plugin-llms'
+
+// Origin (scheme+host, no path) and base path are kept separate so the llms.txt
+// plugin — which prepends `base` itself — doesn't double it. Move to a custom
+// domain by setting DOCS_ORIGIN=https://your-domain and DOCS_BASE=/.
+const ORIGIN = process.env.DOCS_ORIGIN ?? 'https://rafaelcg.github.io'
+const BASE = process.env.DOCS_BASE ?? '/'
+const SITE = ORIGIN + BASE // full public root, e.g. https://rafaelcg.github.io/stripekit/
 
 export default defineConfig({
   title: 'stripekit',
@@ -7,9 +15,14 @@ export default defineConfig({
   lang: 'en-US',
   cleanUrls: true,
   lastUpdated: true,
-  // Project-page hosting lives under /stripekit/. The Pages workflow sets
-  // DOCS_BASE; local dev stays at '/'.
-  base: process.env.DOCS_BASE ?? '/',
+  base: BASE,
+
+  sitemap: { hostname: SITE },
+
+  // Generate llms.txt + llms-full.txt + per-page .md for AI agents.
+  vite: {
+    plugins: [llmstxt({ domain: ORIGIN })],
+  },
 
   head: [
     ['meta', { name: 'theme-color', content: '#635bff' }],
@@ -22,6 +35,7 @@ export default defineConfig({
         content: 'Declare your catalog. Reconcile your own Stripe account. Own the code.',
       },
     ],
+    ['link', { rel: 'alternate', type: 'text/markdown', href: `${SITE}llms.txt` }],
   ],
 
   themeConfig: {
@@ -51,6 +65,7 @@ export default defineConfig({
             { text: 'push', link: '/cli/push' },
             { text: 'pull', link: '/cli/pull' },
             { text: 'dev', link: '/cli/dev' },
+            { text: 'check', link: '/cli/check' },
           ],
         },
       ],

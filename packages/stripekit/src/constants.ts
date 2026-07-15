@@ -28,5 +28,6 @@ export const ENV = {
   secretKey: ['STRIPE_SECRET_KEY'],
   publishableKey: ['STRIPE_PUBLISHABLE_KEY', 'NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY'],
   webhookSecret: ['STRIPE_WEBHOOK_SECRET'],
+  portalConfigId: ['STRIPE_PORTAL_CONFIGURATION_ID'],
   appUrl: ['STRIPEKIT_APP_URL', 'NEXT_PUBLIC_APP_URL', 'NEXT_PUBLIC_SITE_URL', 'VERCEL_URL'],
 } as const

@@ -1,8 +1,13 @@
 # stripekit
 
+[![npm](https://img.shields.io/npm/v/stripekit.svg)](https://www.npmjs.com/package/stripekit)
+[![CI](https://github.com/rafaelcg/stripekit/actions/workflows/ci.yml/badge.svg)](https://github.com/rafaelcg/stripekit/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/stripekit.svg)](https://github.com/rafaelcg/stripekit/blob/main/LICENSE)
+[![docs](https://img.shields.io/badge/docs-rafaelcg.github.io%2Fstripekit-635bff)](https://rafaelcg.github.io/stripekit/)
+
 **The create-next-app of Stripe.** Declare your product catalog in a config file, and `stripekit` reconciles your _own_ Stripe account to match it — creating and updating products, prices, the webhook endpoint, and the customer portal. No hosted service, no revenue share, no runtime dependency. Plain Stripe underneath, code you own on top.
 
-> Status: early. Ships `init`, `plan`, `push`, `pull`, and `dev` (local webhook forwarding). A `check` doctor is on the roadmap.
+> Status: early. Ships `init`, `plan`, `push`, `pull`, `dev` (local webhook forwarding), and `check` (a config/account doctor).
 
 ## Why
 
@@ -41,13 +46,14 @@ Point stripekit at your account by setting `STRIPE_SECRET_KEY` (test key while d
 
 ## Commands
 
-| Command          | What it does                                                                                                  |
-| ---------------- | ------------------------------------------------------------------------------------------------------------- |
-| `stripekit init` | Scaffold `stripe.config.ts` and correct-by-construction billing code into a Next.js (App Router) app.         |
-| `stripekit plan` | Preview the changes `push` would make. Never mutates anything.                                                |
-| `stripekit push` | Reconcile your Stripe account to match `stripe.config.ts`. Test mode by default; live mode requires `--live`. |
-| `stripekit pull` | Generate `stripe.config.ts` from your existing catalog (read-only).                                           |
-| `stripekit dev`  | Forward Stripe webhooks to your local app and capture the signing secret (wraps `stripe listen`).             |
+| Command           | What it does                                                                                                  |
+| ----------------- | ------------------------------------------------------------------------------------------------------------- |
+| `stripekit init`  | Scaffold `stripe.config.ts` and correct-by-construction billing code into a Next.js (App Router) app.         |
+| `stripekit plan`  | Preview the changes `push` would make. Never mutates anything.                                                |
+| `stripekit push`  | Reconcile your Stripe account to match `stripe.config.ts`. Test mode by default; live mode requires `--live`. |
+| `stripekit pull`  | Generate `stripe.config.ts` from your existing catalog (read-only).                                           |
+| `stripekit dev`   | Forward Stripe webhooks to your local app and capture the signing secret (wraps `stripe listen`).             |
+| `stripekit check` | Doctor: verify keys, config, config-vs-account drift, and webhook/portal wiring.                              |
 
 Common flags: `--json` (machine-readable output for agents/CI), `--yes` (skip confirmation — required to apply to live mode non-interactively), `--url <url>` (base URL for webhook registration).
 
@@ -68,6 +74,10 @@ stripekit push --live --yes    # promote the same catalog to live mode
 ## The webhook signing secret
 
 When stripekit creates the webhook endpoint, Stripe returns the signing secret exactly once. stripekit captures it and writes `STRIPE_WEBHOOK_SECRET` to your env file immediately — it is not retrievable via the API afterward.
+
+## For AI agents
+
+Point your coding agent at **[SKILL.md](https://rafaelcg.github.io/stripekit/SKILL.md)** and it can set stripekit up for you. The docs are also available as **[llms.txt](https://rafaelcg.github.io/stripekit/llms.txt)** / **[llms-full.txt](https://rafaelcg.github.io/stripekit/llms-full.txt)**, and every command accepts `--json` and `--yes`.
 
 ## License
 

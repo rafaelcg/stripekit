@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "skills": [
+    {
+      "name": "stripekit",
+      "description": "Add Stripe billing (subscriptions, checkout, customer portal) to an app by declaring a catalog in code and running the stripekit CLI.",
+      "url": "https://rafaelcg.github.io/stripekit/SKILL.md",
+      "tags": ["stripe", "billing", "subscriptions", "payments", "nextjs", "cli"]
+    }
+  ]
+}

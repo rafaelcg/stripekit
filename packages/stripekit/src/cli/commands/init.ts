@@ -2,7 +2,6 @@ import { cancel, intro, isCancel, log, note, outro, select, text } from '@clack/
 import pc from 'picocolors'
 import { ENV } from '../../constants'
 import { loadConfig } from '../../config/load'
-import { StripekitError } from '../../util/errors'
 import { chooseEnvFile, resolveEnvVar, upsertEnv } from '../../util/env'
 import {
   detectProject,
@@ -38,10 +37,10 @@ export async function runInit(opts: InitOptions): Promise<void> {
 
   intro(pc.bold('stripekit init'))
 
+  // Code scaffolding targets Next.js App Router. For any other stack, still set
+  // up the declarative catalog so plan/push/pull work.
   if (!project.isNext) {
-    throw new StripekitError('`stripekit init` currently supports Next.js (App Router).', {
-      hint: 'The reconciler — plan / push / pull — works with any stack today.',
-    })
+    return runConfigOnlyInit(project, opts, interactive)
   }
 
   const adapter = await resolveAdapter(opts, interactive)
@@ -73,6 +72,37 @@ export async function runInit(opts: InitOptions): Promise<void> {
 
   note(nextSteps(project, scaffoldOpts, auth), 'Next steps')
   outro(pc.green('Done. Run `stripekit push` to create your products, webhook, and portal.'))
+}
+
+/**
+ * For non-Next.js projects: set up the declarative catalog (stripe.config.ts) so
+ * plan/push/pull work, and point the user there. Billing-code scaffolding is
+ * Next.js App Router-only for now.
+ */
+async function runConfigOnlyInit(
+  project: ReturnType<typeof detectProject>,
+  opts: InitOptions,
+  interactive: boolean,
+): Promise<void> {
+  log.info(
+    `No Next.js app detected — setting up ${pc.cyan('catalog reconciliation')}. Code scaffolding is Next.js-only for now.`,
+  )
+
+  const configWritten = writeStarterConfig(project)
+  if (configWritten) log.success(`Created ${pc.green('+')} ${configWritten}`)
+  else log.warn('stripe.config.ts already exists — leaving it untouched.')
+
+  await ensureSecretKey(opts.cwd, interactive)
+
+  note(
+    [
+      `1. Edit ${pc.cyan('stripe.config.ts')} to describe your products and prices.`,
+      `2. Preview:  ${pc.cyan('npx stripekit plan')}`,
+      `3. Apply:    ${pc.cyan('npx stripekit push')}`,
+    ].join('\n'),
+    'Next steps',
+  )
+  outro(pc.green('Done. Your catalog is ready — reconcile it with `stripekit push`.'))
 }
 
 async function resolveAdapter(opts: InitOptions, interactive: boolean): Promise<SyncAdapter> {

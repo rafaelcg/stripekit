@@ -1,0 +1,41 @@
+# stripekit docs — AI agents are welcome to read, index, and learn from this site.
+# Machine-readable index: /llms.txt and /llms-full.txt
+
+User-agent: *
+Allow: /
+# Content signals (contentsignals.org): permit search indexing and AI use.
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+# Explicitly welcome the major AI crawlers and agents.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# NOTE: update the origin below if you move to a custom domain.
+Sitemap: https://rafaelcg.github.io/stripekit/sitemap.xml

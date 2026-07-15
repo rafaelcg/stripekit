@@ -3,6 +3,7 @@ import { Command } from 'commander'
 import pc from 'picocolors'
 import { isStripekitError } from '../util/errors'
 import type { AuthLibrary, SyncAdapter } from '../init/detect'
+import { runCheck } from './commands/check'
 import { runDev } from './commands/dev'
 import { runInit } from './commands/init'
 import { runPlan, runPush } from './commands/push'
@@ -15,7 +16,7 @@ program
   .description(
     'The create-next-app of Stripe — declarative catalog reconciliation for your own Stripe account.',
   )
-  .version('0.1.1')
+  .version('0.2.0')
 
 program
   .command('push')
@@ -101,18 +102,12 @@ program
     }),
   )
 
-for (const [name, summary] of [
-  ['check', 'Verify keys, webhook wiring, and config-vs-account drift'],
-] as const) {
-  program
-    .command(name)
-    .description(`${summary} (coming soon)`)
-    .action(() => {
-      console.log(
-        `${pc.yellow('stripekit ' + name)} is on the roadmap but not built yet — this release ships ${pc.bold('init')}, ${pc.bold('plan')}, ${pc.bold('push')}, ${pc.bold('pull')}, and ${pc.bold('dev')}.`,
-      )
-    })
-}
+program
+  .command('check')
+  .description('Verify keys, config validity, config-vs-account drift, and webhook/portal wiring')
+  .option('--json', 'Output machine-readable JSON (for agents / CI)')
+  .option('--url <url>', 'Base URL used when checking the webhook endpoint')
+  .action((options) => runCheck({ cwd: process.cwd(), json: options.json, url: options.url }))
 
 try {
   await program.parseAsync(process.argv)
