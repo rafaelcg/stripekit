@@ -79,7 +79,7 @@ export interface PortalConfig {
 }
 
 /** Where the generated `sync.ts` persists canonical customer state. */
-export type SyncAdapter = 'drizzle' | 'kv' | 'prisma'
+export type SyncAdapter = 'drizzle' | 'kv'
 
 export interface StripekitConfig {
   /** The products in your catalog, keyed by a stable slug (`pro`, `team`). */

@@ -5,7 +5,7 @@ stripekit turns your Stripe catalog into a file in your repo and reconciles your
 ## Requirements
 
 - Node.js 20+
-- A Stripe account (or none — `init` can bootstrap a sandbox)
+- A Stripe account (test mode is fine — `init` prompts for a `sk_test_…` key)
 
 ## Install
 

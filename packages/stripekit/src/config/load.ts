@@ -1,5 +1,6 @@
 import { existsSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { createJiti } from 'jiti'
 import { StripekitError } from '../util/errors'
 import { validateConfig } from './schema'
@@ -35,7 +36,14 @@ export async function loadConfig(
     })
   }
 
-  const jiti = createJiti(import.meta.url, { moduleCache: false })
+  // Make `import { defineConfig } from 'stripekit'` in the user's config resolve
+  // to THIS running CLI's own bundled entry, so `npx stripekit …` works even when
+  // stripekit isn't installed as a local dependency of the user's project.
+  const selfEntry = resolve(dirname(fileURLToPath(import.meta.url)), 'index.js')
+  const jiti = createJiti(import.meta.url, {
+    moduleCache: false,
+    ...(existsSync(selfEntry) ? { alias: { stripekit: selfEntry } } : {}),
+  })
   let mod: unknown
   try {
     mod = await jiti.import(path, { default: true })

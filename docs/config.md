@@ -95,12 +95,14 @@ All four default to `true` when a `portal` object is present. Plan-switching req
 
 ## `sync`
 
-Which adapter the generated code uses to persist synced customer state.
+Records which storage adapter the generated code uses to persist synced customer
+state.
 
 ```ts
 sync: {
   adapter: 'drizzle'
-} // 'drizzle' | 'kv' | 'prisma'
+} // 'drizzle' | 'kv'
 ```
 
-Consumed by [`stripekit init`](/cli/init) when scaffolding the storage layer.
+[`stripekit init`](/cli/init) scaffolds the matching store; you pick the adapter
+with `init --adapter` or the interactive prompt.

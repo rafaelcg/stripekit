@@ -66,7 +66,7 @@ const configSchema = z
     webhooks: webhookSchema.optional(),
     portal: z.union([portalSchema, z.literal(false)]).optional(),
     sync: z
-      .object({ adapter: z.enum(['drizzle', 'kv', 'prisma']) })
+      .object({ adapter: z.enum(['drizzle', 'kv']) })
       .strict()
       .optional(),
   })

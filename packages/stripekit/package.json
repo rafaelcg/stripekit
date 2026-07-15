@@ -1,6 +1,6 @@
 {
   "name": "stripekit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The create-next-app of Stripe. Declarative catalog reconciliation into your own Stripe account, plus correct-by-construction billing code you own.",
   "license": "MIT",
   "author": "Rafael Cammarano Guglielmi",

@@ -1,6 +1,6 @@
 # stripekit
 
-**The create-next-app of Stripe.** One command takes an app from zero to working payments on _your_ Stripe account: it provisions your catalog from a config file in your repo, and (soon) drops in correct-by-construction billing code you own. No hosted service. No revenue share. Nothing to depend on at runtime. Works identically whether a human or an agent runs it.
+**The create-next-app of Stripe.** One command takes an app from zero to working payments on _your_ Stripe account: it provisions your catalog from a config file in your repo, and drops in correct-by-construction billing code you own. No hosted service. No revenue share. Nothing to depend on at runtime. Works identically whether a human or an agent runs it.
 
 ## Repository layout
 

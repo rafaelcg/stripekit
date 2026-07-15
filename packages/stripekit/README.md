@@ -6,7 +6,7 @@
 
 ## Why
 
-The painful parts of Stripe aren't the API calls — they're the dashboard ceremony, the test/live drift, and getting webhooks + state sync correct. Existing tools either replace your Stripe account (merchants of record) or put your billing state on their servers (hosted control planes). stripekit does neither: it's a dev tool that leaves you with a declarative catalog and, soon, correct-by-construction code in your repo.
+The painful parts of Stripe aren't the API calls — they're the dashboard ceremony, the test/live drift, and getting webhooks + state sync correct. Existing tools either replace your Stripe account (merchants of record) or put your billing state on their servers (hosted control planes). stripekit does neither: it's a dev tool that leaves you with a declarative catalog and correct-by-construction code in your repo.
 
 ## Install
 

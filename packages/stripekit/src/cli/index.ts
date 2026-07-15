@@ -15,7 +15,7 @@ program
   .description(
     'The create-next-app of Stripe — declarative catalog reconciliation for your own Stripe account.',
   )
-  .version('0.1.0')
+  .version('0.1.1')
 
 program
   .command('push')
