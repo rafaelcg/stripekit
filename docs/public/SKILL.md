@@ -68,4 +68,4 @@ Use `--yes` to skip prompts. To apply to a **live** account you must pass both `
 
 ## More
 
-Docs: https://rafaelcg.github.io/stripekit/ · Machine index: https://rafaelcg.github.io/stripekit/llms.txt · Source: https://github.com/rafaelcg/stripekit
+Docs: https://stripe.rafael.ltd/ · Machine index: https://stripe.rafael.ltd/llms.txt · Source: https://github.com/rafaelcg/stripekit

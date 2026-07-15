@@ -2,11 +2,11 @@ import { defineConfig } from 'vitepress'
 import llmstxt from 'vitepress-plugin-llms'
 
 // Origin (scheme+host, no path) and base path are kept separate so the llms.txt
-// plugin — which prepends `base` itself — doesn't double it. Move to a custom
-// domain by setting DOCS_ORIGIN=https://your-domain and DOCS_BASE=/.
-const ORIGIN = process.env.DOCS_ORIGIN ?? 'https://rafaelcg.github.io'
+// plugin — which prepends `base` itself — doesn't double it. Overridable via
+// DOCS_ORIGIN / DOCS_BASE for alternate hosts.
+const ORIGIN = process.env.DOCS_ORIGIN ?? 'https://stripe.rafael.ltd'
 const BASE = process.env.DOCS_BASE ?? '/'
-const SITE = ORIGIN + BASE // full public root, e.g. https://rafaelcg.github.io/stripekit/
+const SITE = ORIGIN + BASE // full public root, e.g. https://stripe.rafael.ltd/
 
 export default defineConfig({
   title: 'stripekit',
@@ -20,8 +20,9 @@ export default defineConfig({
   sitemap: { hostname: SITE },
 
   // Generate llms.txt + llms-full.txt + per-page .md for AI agents.
+  // Exclude public/ (SKILL.md there is a served static asset, not a doc page).
   vite: {
-    plugins: [llmstxt({ domain: ORIGIN })],
+    plugins: [llmstxt({ domain: ORIGIN, ignoreFiles: ['public/**'] })],
   },
 
   head: [

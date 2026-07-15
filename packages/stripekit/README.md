@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/stripekit.svg)](https://www.npmjs.com/package/stripekit)
 [![CI](https://github.com/rafaelcg/stripekit/actions/workflows/ci.yml/badge.svg)](https://github.com/rafaelcg/stripekit/actions/workflows/ci.yml)
 [![license](https://img.shields.io/npm/l/stripekit.svg)](https://github.com/rafaelcg/stripekit/blob/main/LICENSE)
-[![docs](https://img.shields.io/badge/docs-rafaelcg.github.io%2Fstripekit-635bff)](https://rafaelcg.github.io/stripekit/)
+[![docs](https://img.shields.io/badge/docs-stripe.rafael.ltd-635bff)](https://stripe.rafael.ltd/)
 
 **The create-next-app of Stripe.** Declare your product catalog in a config file, and `stripekit` reconciles your _own_ Stripe account to match it — creating and updating products, prices, the webhook endpoint, and the customer portal. No hosted service, no revenue share, no runtime dependency. Plain Stripe underneath, code you own on top.
 
@@ -77,7 +77,7 @@ When stripekit creates the webhook endpoint, Stripe returns the signing secret e
 
 ## For AI agents
 
-Point your coding agent at **[SKILL.md](https://rafaelcg.github.io/stripekit/SKILL.md)** and it can set stripekit up for you. The docs are also available as **[llms.txt](https://rafaelcg.github.io/stripekit/llms.txt)** / **[llms-full.txt](https://rafaelcg.github.io/stripekit/llms-full.txt)**, and every command accepts `--json` and `--yes`.
+Point your coding agent at **[SKILL.md](https://stripe.rafael.ltd/SKILL.md)** and it can set stripekit up for you. The docs are also available as **[llms.txt](https://stripe.rafael.ltd/llms.txt)** / **[llms-full.txt](https://stripe.rafael.ltd/llms-full.txt)**, and every command accepts `--json` and `--yes`.
 
 ## License
 

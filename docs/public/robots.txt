@@ -38,4 +38,4 @@ User-agent: CCBot
 Allow: /
 
 # NOTE: update the origin below if you move to a custom domain.
-Sitemap: https://rafaelcg.github.io/stripekit/sitemap.xml
+Sitemap: https://stripe.rafael.ltd/sitemap.xml

@@ -23,3 +23,6 @@ docs/.vitepress/dist/
 
 # internal strategy notes (kept local)
 research/
+
+# wrangler / cloudflare
+.wrangler/

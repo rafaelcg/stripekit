@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Guidance for AI agents working **on** the stripekit codebase. (To learn how to **use** stripekit in a project, read [`SKILL.md`](./SKILL.md) or [llms.txt](https://rafaelcg.github.io/stripekit/llms.txt) instead.)
+Guidance for AI agents working **on** the stripekit codebase. (To learn how to **use** stripekit in a project, read [`SKILL.md`](./SKILL.md) or [llms.txt](https://stripe.rafael.ltd/llms.txt) instead.)
 
 ## What this is
 

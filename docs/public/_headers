@@ -1,0 +1,14 @@
+# Cloudflare Pages headers.
+/*
+  Link: <https://stripe.rafael.ltd/llms.txt>; rel="alternate"; type="text/markdown"
+  X-Robots-Tag: all
+
+# Serve the generated markdown twins as text/markdown for agents.
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/llms.txt
+  Content-Type: text/markdown; charset=utf-8
+
+/llms-full.txt
+  Content-Type: text/markdown; charset=utf-8

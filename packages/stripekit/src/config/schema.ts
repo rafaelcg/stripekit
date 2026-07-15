@@ -86,7 +86,7 @@ export function validateConfig(input: unknown): StripekitConfig {
       })
       .join('\n')
     throw new StripekitError(`Invalid stripe.config.ts:\n${issues}`, {
-      hint: 'See https://rafaelcg.github.io/stripekit/config for the full schema.',
+      hint: 'See https://stripe.rafael.ltd/config for the full schema.',
     })
   }
   return result.data as StripekitConfig
