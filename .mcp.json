@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "stripekit": {
+      "command": "npx",
+      "args": ["-y", "stripekit@latest", "mcp"]
+    }
+  }
+}

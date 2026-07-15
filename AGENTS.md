@@ -32,6 +32,25 @@ pnpm docs:build                        # build the docs site
 
 Always run `test`, `typecheck`, and `format` before committing.
 
+## Releasing
+
+`stripekit` is published to npm. Keep one version number across `packages/stripekit/package.json`, `src/constants.ts` (`VERSION`), `docs/public/.well-known/mcp/server-card.json`, `server.json`, `.claude-plugin/plugin.json`, and `.claude-plugin/marketplace.json`.
+
+```bash
+pnpm -C packages/stripekit build
+cd packages/stripekit && npm publish   # publishConfig makes it public
+```
+
+The MCP registry (`registry.modelcontextprotocol.io`, still preview) lists the server so agents can discover it. It verifies ownership by reading `mcpName` from the **published** npm package, so publish to npm first, then:
+
+```bash
+# one-time: brew install mcp-publisher (or download from the registry releases)
+mcp-publisher login github           # GitHub device flow; locks the io.github.rafaelcg/* namespace
+mcp-publisher publish                 # reads ./server.json
+```
+
+`server.json`'s `packages[].version` must equal an npm version whose published `package.json` already contains `mcpName` (`io.github.rafaelcg/stripekit`). The Claude Code plugin and Cursor deeplink both run `npx -y stripekit@latest mcp`, so they need no per-release change — only a published npm version.
+
 ## Safety invariants (do not break these)
 
 The reconciler mutates real Stripe accounts and generates people's billing code. Preserve:

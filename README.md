@@ -40,6 +40,19 @@ stripekit is built to be driven by agents, not just humans:
 - **`stripekit mcp`** — an [MCP](https://modelcontextprotocol.io) server exposing `plan`/`push`/`pull`/`check` as tools an agent can call.
 - Every command accepts `--json` and `--yes` for deterministic, non-interactive use.
 
+Install the MCP server one-click in **Cursor**:
+
+[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=stripekit&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsInN0cmlwZWtpdEBsYXRlc3QiLCJtY3AiXX0=)
+
+…or in **Claude Code** as a plugin:
+
+```bash
+/plugin marketplace add rafaelcg/stripekit
+/plugin install stripekit@stripekit-marketplace
+```
+
+See the [MCP docs](https://stripe.rafael.ltd/cli/mcp) for other clients (Claude Desktop, `.cursor/mcp.json`, `claude mcp add`).
+
 Working _on_ stripekit? See [AGENTS.md](./AGENTS.md).
 
 ## Develop

@@ -1,0 +1,9 @@
+{
+  "name": "stripekit",
+  "description": "Reconcile your Stripe catalog (products, prices, webhook, portal) and inspect your account — exposed to Claude as MCP tools.",
+  "version": "0.2.1",
+  "author": {
+    "name": "Rafael Cammarano Guglielmi"
+  },
+  "homepage": "https://stripe.rafael.ltd/cli/mcp"
+}

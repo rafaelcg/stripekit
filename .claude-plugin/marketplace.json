@@ -1,0 +1,18 @@
+{
+  "name": "stripekit-marketplace",
+  "owner": {
+    "name": "Rafael Cammarano Guglielmi",
+    "email": "rafaelcg@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "stripekit",
+      "source": "./",
+      "description": "The create-next-app of Stripe, as MCP tools: reconcile your Stripe catalog and inspect your account (plan / push / pull / check).",
+      "version": "0.2.1",
+      "author": {
+        "name": "Rafael Cammarano Guglielmi"
+      }
+    }
+  ]
+}

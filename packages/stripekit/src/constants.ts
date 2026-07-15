@@ -1,5 +1,5 @@
 /** The stripekit version, surfaced by the CLI and the MCP server. */
-export const VERSION = '0.2.0'
+export const VERSION = '0.2.1'
 
 /**
  * The minimal set of webhook events the generated handler actually processes.

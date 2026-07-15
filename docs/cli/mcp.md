@@ -41,6 +41,25 @@ Point your MCP client at the server and set `cwd` to your project (so it finds `
 
 If your key isn't in the project's `.env.local`, pass it through the client's `env` option instead.
 
+## Add to Cursor
+
+One click installs the server into Cursor:
+
+[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=stripekit&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsInN0cmlwZWtpdEBsYXRlc3QiLCJtY3AiXX0=)
+
+Cursor doesn't take a `cwd`, so run it from the project that has your `stripe.config.ts`, or open that project in Cursor before calling the tools.
+
+## Install as a Claude Code plugin
+
+stripekit ships a Claude Code plugin that wires up the MCP server (and a skill) in two commands:
+
+```bash
+/plugin marketplace add rafaelcg/stripekit
+/plugin install stripekit@stripekit-marketplace
+```
+
+That's it — the `stripekit_*` tools become available, and the plugin's skill tells the agent when and how to use them.
+
 ## Safety
 
 The write tool mirrors the CLI's guarantees: dry-run unless you ask to apply, a hard `live` gate for live-mode keys, prices replaced (not mutated), and removals archived (not deleted). Read-only tools can't change anything.

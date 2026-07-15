@@ -80,6 +80,12 @@ When stripekit creates the webhook endpoint, Stripe returns the signing secret e
 
 Point your coding agent at **[SKILL.md](https://stripe.rafael.ltd/SKILL.md)** and it can set stripekit up for you. The docs are also available as **[llms.txt](https://stripe.rafael.ltd/llms.txt)** / **[llms-full.txt](https://stripe.rafael.ltd/llms-full.txt)**, and every command accepts `--json` and `--yes`. Or run **`stripekit mcp`** to expose `plan`/`push`/`pull`/`check` to an agent as [MCP](https://modelcontextprotocol.io) tools.
 
+Install the MCP server one-click in **Cursor**:
+
+[![Add to Cursor](https://cursor.com/deeplink/mcp-install-dark.svg)](cursor://anysphere.cursor-deeplink/mcp/install?name=stripekit&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsInN0cmlwZWtpdEBsYXRlc3QiLCJtY3AiXX0=)
+
+…or in **Claude Code**: `/plugin marketplace add rafaelcg/stripekit` then `/plugin install stripekit@stripekit-marketplace`. See the **[MCP docs](https://stripe.rafael.ltd/cli/mcp)** for every client.
+
 ## License
 
 MIT
