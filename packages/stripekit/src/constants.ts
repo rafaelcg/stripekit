@@ -1,3 +1,6 @@
+/** The stripekit version, surfaced by the CLI and the MCP server. */
+export const VERSION = '0.2.0'
+
 /**
  * The minimal set of webhook events the generated handler actually processes.
  * Mirrors the "How I Stay Sane Implementing Stripe" event list: everything

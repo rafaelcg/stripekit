@@ -10,6 +10,15 @@ export default defineConfig({
   dts: true,
   clean: true,
   sourcemap: true,
-  // The `stripe` SDK is a runtime dependency, not bundled.
-  external: ['stripe', 'jiti', 'zod', 'commander', '@clack/prompts', 'picocolors'],
+  // Runtime dependencies are installed, not bundled.
+  external: [
+    'stripe',
+    'jiti',
+    'zod',
+    'commander',
+    '@clack/prompts',
+    'picocolors',
+    '@modelcontextprotocol/sdk',
+    /^@modelcontextprotocol\/sdk\//,
+  ],
 })

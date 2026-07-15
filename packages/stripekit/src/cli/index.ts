@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
 import pc from 'picocolors'
+import { VERSION } from '../constants'
 import { isStripekitError } from '../util/errors'
 import type { AuthLibrary, SyncAdapter } from '../init/detect'
 import { runCheck } from './commands/check'
 import { runDev } from './commands/dev'
 import { runInit } from './commands/init'
+import { runMcp } from './commands/mcp'
 import { runPlan, runPush } from './commands/push'
 import { runPull } from './commands/pull'
 
@@ -16,7 +18,7 @@ program
   .description(
     'The create-next-app of Stripe — declarative catalog reconciliation for your own Stripe account.',
   )
-  .version('0.2.0')
+  .version(VERSION)
 
 program
   .command('push')
@@ -108,6 +110,13 @@ program
   .option('--json', 'Output machine-readable JSON (for agents / CI)')
   .option('--url <url>', 'Base URL used when checking the webhook endpoint')
   .action((options) => runCheck({ cwd: process.cwd(), json: options.json, url: options.url }))
+
+program
+  .command('mcp')
+  .description(
+    'Run stripekit as an MCP server over stdio (exposes plan/push/pull/check to AI agents)',
+  )
+  .action(() => runMcp())
 
 try {
   await program.parseAsync(process.argv)

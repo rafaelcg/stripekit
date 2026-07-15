@@ -20,7 +20,7 @@
 
 ## Status
 
-Built and tested: `stripekit init | plan | push | pull | dev | check`.
+Built and tested: `stripekit init | plan | push | pull | dev | check | mcp`.
 
 - **Reconciler** (`plan` / `push` / `pull`) — reconciles your Stripe account to a declarative `stripe.config.ts` (products, prices, webhook endpoint, customer portal), treating prices as immutable, archiving instead of deleting, and converging idempotently.
 - **`init`** — scaffolds `stripe.config.ts` plus correct-by-construction billing code (webhook handler, state sync, checkout/portal routes) into a Next.js App Router app.
@@ -37,6 +37,7 @@ stripekit is built to be driven by agents, not just humans:
 
 - **[llms.txt](https://stripe.rafael.ltd/llms.txt)** and **[llms-full.txt](https://stripe.rafael.ltd/llms-full.txt)** — the docs as clean markdown for LLM context.
 - **[SKILL.md](https://stripe.rafael.ltd/SKILL.md)** — point your coding agent at this and it can set stripekit up for you.
+- **`stripekit mcp`** — an [MCP](https://modelcontextprotocol.io) server exposing `plan`/`push`/`pull`/`check` as tools an agent can call.
 - Every command accepts `--json` and `--yes` for deterministic, non-interactive use.
 
 Working _on_ stripekit? See [AGENTS.md](./AGENTS.md).

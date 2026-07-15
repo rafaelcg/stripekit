@@ -54,6 +54,7 @@ Point stripekit at your account by setting `STRIPE_SECRET_KEY` (test key while d
 | `stripekit pull`  | Generate `stripe.config.ts` from your existing catalog (read-only).                                           |
 | `stripekit dev`   | Forward Stripe webhooks to your local app and capture the signing secret (wraps `stripe listen`).             |
 | `stripekit check` | Doctor: verify keys, config, config-vs-account drift, and webhook/portal wiring.                              |
+| `stripekit mcp`   | Run as an MCP server (stdio) so AI agents can call plan/push/pull/check directly.                             |
 
 Common flags: `--json` (machine-readable output for agents/CI), `--yes` (skip confirmation — required to apply to live mode non-interactively), `--url <url>` (base URL for webhook registration).
 
@@ -77,7 +78,7 @@ When stripekit creates the webhook endpoint, Stripe returns the signing secret e
 
 ## For AI agents
 
-Point your coding agent at **[SKILL.md](https://stripe.rafael.ltd/SKILL.md)** and it can set stripekit up for you. The docs are also available as **[llms.txt](https://stripe.rafael.ltd/llms.txt)** / **[llms-full.txt](https://stripe.rafael.ltd/llms-full.txt)**, and every command accepts `--json` and `--yes`.
+Point your coding agent at **[SKILL.md](https://stripe.rafael.ltd/SKILL.md)** and it can set stripekit up for you. The docs are also available as **[llms.txt](https://stripe.rafael.ltd/llms.txt)** / **[llms-full.txt](https://stripe.rafael.ltd/llms-full.txt)**, and every command accepts `--json` and `--yes`. Or run **`stripekit mcp`** to expose `plan`/`push`/`pull`/`check` to an agent as [MCP](https://modelcontextprotocol.io) tools.
 
 ## License
 

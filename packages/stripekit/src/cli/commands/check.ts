@@ -147,7 +147,7 @@ export async function runCheck(opts: CheckOptions): Promise<void> {
   if (hasFail) process.exitCode = 1
 }
 
-async function gatherFacts(opts: CheckOptions): Promise<CheckFacts> {
+export async function gatherFacts(opts: CheckOptions): Promise<CheckFacts> {
   const secretKey = resolveEnvVar(opts.cwd, ENV.secretKey)
   const facts: CheckFacts = {
     hasKey: !!secretKey,

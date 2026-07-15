@@ -54,6 +54,7 @@
   ],
   "dependencies": {
     "@clack/prompts": "^0.7.0",
+    "@modelcontextprotocol/sdk": "^1.0.0",
     "commander": "^12.1.0",
     "jiti": "^2.4.0",
     "picocolors": "^1.1.0",

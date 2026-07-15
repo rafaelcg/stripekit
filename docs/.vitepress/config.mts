@@ -67,6 +67,7 @@ export default defineConfig({
             { text: 'pull', link: '/cli/pull' },
             { text: 'dev', link: '/cli/dev' },
             { text: 'check', link: '/cli/check' },
+            { text: 'mcp', link: '/cli/mcp' },
           ],
         },
       ],

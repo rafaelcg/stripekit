@@ -1,0 +1,36 @@
+{
+  "serverInfo": {
+    "name": "stripekit",
+    "version": "0.2.0"
+  },
+  "description": "Reconcile a declarative Stripe catalog and inspect a Stripe account. Runs locally over stdio via `npx stripekit mcp`.",
+  "transport": {
+    "type": "stdio",
+    "command": "npx",
+    "args": ["-y", "stripekit@latest", "mcp"]
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "stripekit_plan",
+      "description": "Preview the changes reconciling the Stripe account to stripe.config.ts would make. Read-only."
+    },
+    {
+      "name": "stripekit_check",
+      "description": "Verify the key, config, config-vs-account drift, and webhook/portal wiring. Read-only."
+    },
+    {
+      "name": "stripekit_pull",
+      "description": "Generate stripe.config.ts from an existing Stripe catalog. Read-only."
+    },
+    {
+      "name": "stripekit_push",
+      "description": "Reconcile the Stripe account to stripe.config.ts. Dry-run by default; apply requires apply:true (and live:true for live mode)."
+    }
+  ],
+  "documentation": "https://stripe.rafael.ltd/cli/mcp"
+}
