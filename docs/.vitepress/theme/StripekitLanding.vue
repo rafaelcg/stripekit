@@ -60,8 +60,7 @@ onMounted(() => {
             <div class="cta">
               <a class="btn primary" href="/guide/getting-started">Get started</a>
               <button class="run copy" data-copy="npx stripekit init">
-                <span class="p">$</span> npx stripekit init<span class="caret">▍</span
-                ><span class="copy-ic">⧉</span>
+                <span class="p">$</span> npx stripekit init<span class="copy-ic">⧉</span>
               </button>
             </div>
             <div class="meta">
