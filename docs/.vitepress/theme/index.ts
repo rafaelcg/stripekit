@@ -1,16 +1,17 @@
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
-import HomeCompare from './HomeCompare.vue'
+import { useData } from 'vitepress'
+import StripekitLanding from './StripekitLanding.vue'
 import './custom.css'
 
 export default {
   extends: DefaultTheme,
   Layout() {
-    // Render the "hard way vs. stripekit" comparison right after the hero,
-    // above the feature grid.
-    return h(DefaultTheme.Layout, null, {
-      'home-hero-after': () => h(HomeCompare),
-    })
+    // The home page uses a bespoke, full-bleed landing (`layout: landing`);
+    // every other page keeps the default docs chrome.
+    const { frontmatter } = useData()
+    if (frontmatter.value.layout === 'landing') return h(StripekitLanding)
+    return h(DefaultTheme.Layout)
   },
   enhanceApp() {
     if (typeof window !== 'undefined') registerWebMcp()
